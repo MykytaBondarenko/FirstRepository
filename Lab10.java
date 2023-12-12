@@ -108,26 +108,17 @@ public class Lab10 {
         }
     }
 
-    public static void Q3() {
+    public static void Q3() { // Fixed the identation
         System.out.println("Q3: Enter how many numbers you want to check for primality: ");
         int n = Integer.parseInt(scan.nextLine());
         int counter = 0;
-        for (int i = 0; i < n; i++) {
-            if (i < 2)
-                continue;
-            boolean check = true;
-
+        for (int i = 2; i < n; i++) { // Removed check variable by changing logic, fixed if statements
+            counter++;
             for (int j = 2; j * j <= i; j++) {
                 if (i % j == 0) {
-                    check = false;
+                    counter--;
                     break;
-                } else {
-
                 }
-            }
-            if (check == true) {
-                counter++;
-            } else {
             }
         }
 
