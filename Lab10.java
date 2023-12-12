@@ -45,58 +45,91 @@ public class Lab10 {
 
     public static void Q2() {
         System.out.println("Q2: Enter the current day (1-31): ");
-        int day = Integer.parseInt(scan.nextLine()); // I've changed the names of the variables so it's more clear what they represent
+        int day = Integer.parseInt(scan.nextLine()); // I've changed the names of the variables so it's more clear what
+                                                     // they represent
         System.out.println("Enter the current month: (1-12)");
         int month = Integer.parseInt(scan.nextLine());
 
-        if (day >= 1 || day <= 31) { // I've rewritten 31 if-else statements into smaller one, rather checking if the date exists and all the exceptions which affect the ending of a number (st, nd and rd)
-            if (day == 1 || day == 21) System.out.print("You selected " + day + "st of ");
-            else if (day == 2 || day == 22) System.out.print("You selected " + day + "nd of ");
-            else if (day == 3 || day == 23) System.out.print("You selected " + day + "rd of ");
-            else System.out.print("You selected " + day + "th of ");
+        if (day >= 1 || day <= 31) { // I've rewritten 31 if-else statements into smaller one, rather checking if the
+                                     // date exists and all the exceptions which affect the ending of a number (st,
+                                     // nd and rd)
+            if (day == 1 || day == 21 || day == 31)
+                System.out.print("You selected " + day + "st of ");
+            else if (day == 2 || day == 22)
+                System.out.print("You selected " + day + "nd of ");
+            else if (day == 3 || day == 23)
+                System.out.print("You selected " + day + "rd of ");
+            else
+                System.out.print("You selected " + day + "th of ");
         } else {
             System.out.println("Invalid day");
         }
 
-        switch (month) { // I've rewritten a large number of if-else statements into a more compact and easier to read switch statement
-            case 1: System.out.println("January"); break;
-            case 2: System.out.println("February"); break;
-            case 3: System.out.println("March"); break;
-            case 4: System.out.println("April"); break;
-            case 5: System.out.println("May"); break;
-            case 6: System.out.println("June"); break;
-            case 7: System.out.println("July"); break;
-            case 8: System.out.println("August"); break;
-            case 9: System.out.println("September"); break;
-            case 10: System.out.println("October"); break;
-            case 11: System.out.println("November"); break;
-            case 12: System.out.println("December"); break;
-            default: System.out.println("Invalid month");
+        switch (month) { // I've rewritten a large number of if-else statements into a more compact and
+                         // easier to read switch statement
+            case 1:
+                System.out.println("January");
+                break;
+            case 2:
+                System.out.println("February");
+                break;
+            case 3:
+                System.out.println("March");
+                break;
+            case 4:
+                System.out.println("April");
+                break;
+            case 5:
+                System.out.println("May");
+                break;
+            case 6:
+                System.out.println("June");
+                break;
+            case 7:
+                System.out.println("July");
+                break;
+            case 8:
+                System.out.println("August");
+                break;
+            case 9:
+                System.out.println("September");
+                break;
+            case 10:
+                System.out.println("October");
+                break;
+            case 11:
+                System.out.println("November");
+                break;
+            case 12:
+                System.out.println("December");
+                break;
+            default:
+                System.out.println("Invalid month");
         }
     }
 
-public static void Q3() {
-    System.out.println("Q3: Enter how many numbers you want to check for primality: ");
-    int n = Integer.parseInt(scan.nextLine());
-    int counter = 0;
-    for (int i = 0; i < n; i++) {
-    if (i < 2)
-    continue;
-    boolean check = true;
+    public static void Q3() {
+        System.out.println("Q3: Enter how many numbers you want to check for primality: ");
+        int n = Integer.parseInt(scan.nextLine());
+        int counter = 0;
+        for (int i = 0; i < n; i++) {
+            if (i < 2)
+                continue;
+            boolean check = true;
 
-    for (int j = 2; j * j <= i; j++) {
-    if (i % j == 0) {
-    check = false;
-    break;
-    } else {
+            for (int j = 2; j * j <= i; j++) {
+                if (i % j == 0) {
+                    check = false;
+                    break;
+                } else {
 
-    }
-    }
-        if (check == true) {
-        counter++;
-        } 
-        else {}
-    }
+                }
+            }
+            if (check == true) {
+                counter++;
+            } else {
+            }
+        }
 
         System.out.println("There are: " + counter + " primes between 0 and " + n);
     }
@@ -105,8 +138,10 @@ public static void Q3() {
         Random rng = new Random();
 
         String next;
-        System.out.println("Q4: Let's play a game. Type \"A\" to attack, \"B\" to buff your next attack. Kill the enemy to win!");
-        System.out.println("Q4: You must roll higher than the enemy armor class (12) to hit. Roll 20 for a critical hit!");
+        System.out.println(
+                "Q4: Let's play a game. Type \"A\" to attack, \"B\" to buff your next attack. Kill the enemy to win!");
+        System.out.println(
+                "Q4: You must roll higher than the enemy armor class (12) to hit. Roll 20 for a critical hit!");
         System.out.println("Q4: Your damage is 2-16 (2d8)");
 
         int enemyHP = 100;
@@ -121,10 +156,12 @@ public static void Q3() {
                 next = scan.nextLine();
                 check2 = true;
                 switch (next) {
-                    case "A", "a":
+                    case "A":
+                    case "a":
                         doAttack = true;
                         break;
-                    case "B", "b":
+                    case "B":
+                    case "b":
                         check = true;
                         System.out.println("Buffing! +5 to your next attack roll and damage");
                         break;
@@ -139,7 +176,7 @@ public static void Q3() {
                 int attackRoll = rng.nextInt(20) + 1;
                 int damage = 0;
                 System.out.print("You rolled: " + attackRoll);
-                if(check) {
+                if (check) {
                     attackRoll += 5;
                     System.out.print(" + 5 (buff active)\n");
                 } else {
@@ -148,7 +185,7 @@ public static void Q3() {
                 if (attackRoll >= 12) {
                     damage = rng.nextInt(8) + 1;
                     damage += rng.nextInt(8) + 1;
-                    if(check) {
+                    if (check) {
                         damage += 5;
                     }
                     if (attackRoll == 20 || (check && attackRoll == 20 + 5)) {
@@ -156,7 +193,7 @@ public static void Q3() {
                         System.out.print("Critical hit! ");
                     }
                     System.out.print("You dealt " + damage + " damage");
-                    if(check) {
+                    if (check) {
                         System.out.print(" (buffed attack)");
                     }
                     enemyHP -= damage;
